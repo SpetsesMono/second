@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Αλέξανδρος Παπαδόπουλος - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Enable Tailwind class-based dark mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo / Name -->
+            <a href="#" class="text-xl font-bold bg-gradient-to-r from-primary-600 to-indigo-500 bg-clip-text text-transparent">
+                Α. Παπαδόπουλος
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-500 transition">Σχετικά</a>
+                <a href="#skills" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-500 transition">Δεξιότητες</a>
+                <a href="#projects" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-500 transition">Έργα</a>
+                <a href="#contact" class="text-sm font-medium hover:text-primary-600 dark:hover:text-primary-500 transition">Επικοινωνία</a>
+            </div>
+
+            <!-- Actions (Theme Toggle & Mobile Menu Button) -->
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" aria-label="Εναλλαγή θέματος" class="p-2 rounded-xl text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Μενού" class="md:hidden p-2 rounded-xl text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block text-base font-medium py-2 hover:text-primary-600 transition">Σχετικά</a>
+            <a href="#skills" class="block text-base font-medium py-2 hover:text-primary-600 transition">Δεξιότητες</a>
+            <a href="#projects" class="block text-base font-medium py-2 hover:text-primary-600 transition">Έργα</a>
+            <a href="#contact" class="block text-base font-medium py-2 hover:text-primary-600 transition">Επικοινωνία</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center md:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-primary-600 animate-pulse"></span>
+                        <span>Διαθέσιμος για νέα έργα</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                        Δημιουργώ <span class="bg-gradient-to-r from-primary-600 to-indigo-500 bg-clip-text text-transparent">μοναδικές</span> ψηφιακές εμπειρίες
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto md:mx-0">
+                        Είμαι Front-End Developer και UI/UX Designer με πάθος για τη δημιουργία καθαρών, αποδοτικών και φιλικών προς τον χρήστη εφαρμογών web.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-2">
+                        <a href="#projects" class="px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-medium text-center shadow-lg shadow-primary-600/30 transition transform hover:-translate-y-0.5">
+                            Δείτε τα Έργα μου
+                        </a>
+                        <a href="#contact" class="px-6 py-3 rounded-xl border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium text-center transition">
+                            Επικοινωνία
+                        </a>
+                    </div>
+                </div>
+                <!-- Hero Visual / Avatar -->
+                <div class="flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-primary-600 to-indigo-400 rounded-3xl rotate-6 opacity-20 blur-xl"></div>
+                        <div class="relative w-full h-full rounded-3xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                            <img src="https://placehold.co/400x400/6366f1/ffffff?text=AP" alt="Αλέξανδρος Παπαδόπουλος" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800/50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Σχετικά με εμένα</h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Λίγα λόγια για το ποιος είμαι και τι με εμπinσιουργεί</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p>
+                        Γεια σας! Ονομάζομαι Αλέξανδρος Παπαδόπουλος και ζω στην Αθήνα. Έχω πολυετή εμπειρία στην ανάπτυξη σύγχρονων ιστοσελίδων και εφαρμογών, συνδυάζοντας την αισθητική με την τεχνική αρτιότητα.
+                    </p>
+                    <p>
+                        Ειδικεύομαι στο οικοσύστημα της JavaScript (React, Tailwind CSS, Node.js) και δίνω ιδιαίτερη έμφαση στην προσβασιμότητα (a11y), την ταχύτητα φόρτωσης και το responsive design.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-2xl font-bold text-primary-600">5+</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Χρόνια Εμπειρίας</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                            <h3 class="text-2xl font-bold text-primary-600">40+</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Ολοκληρωμένα Έργα</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 text-primary-600 flex items-center justify-content justify-center text-xl">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Πτυχίο Πληροφορικής</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Εθνικό και Καποδistριακό Πανεπιστήμιο Αθηνών</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary-100 dark:bg-primary-900/40 text-primary-600 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Senior Frontend Developer</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">Tech Solutions Lab (2021 - Παρόν)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Τεχνολογίες & Δεξιότητες</h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Τα εργαλεία και οι τεχνολογίες που χρησιμοποιώ καθημερινά</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-brands fa-react"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Frontend Dev</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">React, Next.js, TypeScript, Tailwind CSS, HTML5/CSS3</p>
+                </div>
+                <!-- Skill Card 2 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">UI/UX Design</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Figma, Adobe XD, Wireframing, Design Systems, Prototyping</p>
+                </div>
+                <!-- Skill Card 3 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Backend & APIs</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Node.js, Express, REST APIs, GraphQL, Firebase, MongoDB</p>
+                </div>
+                <!-- Skill Card 4 -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 rounded-xl bg-primary-50 dark:bg-primary-900/30 text-primary-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Tools & DevOps</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Git, GitHub Actions, Vercel, Docker, Webpack, Vite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800/50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Επιλεγμένα Έργα</h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Μια ματιά στις πιο πρόσφατες δουλειές μου</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button onclick="filterProjects('all')" class="filter-btn px-5 py-2 rounded-xl text-sm font-medium bg-primary-600 text-white transition shadow-sm" data-filter="all">Όλα</button>
+                <button onclick="filterProjects('web')" class="filter-btn px-5 py-2 rounded-xl text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">Web Apps</button>
+                <button onclick="filterProjects('mobile')" class="filter-btn px-5 py-2 rounded-xl text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">Mobile</button>
+                <button onclick="filterProjects('ui')" class="filter-btn px-5 py-2 rounded-xl text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">UI/UX</button>
+            </div>
+
+            <!-- Project Gallery Grid -->
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition group" data-category="web">
+                    <div class="h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=E-Shop+Platform" alt="E-Shop Platform" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">Web App</span>
+                        <h3 class="text-xl font-bold">E-Shop Platform</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Πλήρης πλατφόρμα ηλεκτρονικού εμπορίου με δυναμικό καλάθι και ασφαλείς πληρωμές.</p>
+                        <div class="flex items-center space-x-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">React</span>
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Tailwind</span>
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition group" data-category="mobile">
+                    <div class="h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
+                        <img src="https://placehold.co/600x400/4f46e5/ffffff?text=Task+Manager+App" alt="Task Manager" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">Mobile</span>
+                        <h3 class="text-xl font-bold">Task Manager App</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Εφαρμογή διαχείρισης καθημερινών εργασιών με συγχρονισμό δεδομένων σε πραγματικό χρόνο.</p>
+                        <div class="flex items-center space-x-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">React Native</span>
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition group" data-category="ui">
+                    <div class="h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
+                        <img src="https://placehold.co/600x400/4338ca/ffffff?text=Fintech+Dashboard" alt="Fintech UI/UX" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">UI/UX Design</span>
+                        <h3 class="text-xl font-bold">Fintech Dashboard UI</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Σχεδιασμός και υλοποίηση σύγχρονου dashboard διαχείρισης οικονομικών συναλλαγών.</p>
+                        <div class="flex items-center space-x-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Figma</span>
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Design System</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition group" data-category="web">
+                    <div class="h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
+                        <img src="https://placehold.co/600x400/6366f1/ffffff?text=Travel+Blog" alt="Travel Blog" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">Web App</span>
+                        <h3 class="text-xl font-bold">Explore Greece Blog</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Προσωπικό ιστολόγιο ταξιδιωτικού περιεχομένου με διαχειριστικό περιβάλλον.</p>
+                        <div class="flex items-center space-x-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Next.js</span>
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition group" data-category="mobile">
+                    <div class="h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
+                        <img src="https://placehold.co/600x400/4f46e5/ffffff?text=Fitness+Tracker" alt="Fitness Tracker" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">Mobile</span>
+                        <h3 class="text-xl font-bold">Fitness Tracker App</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Καταγραφή ημερήσιας δραστηριότητας, καρδιακών παλμών και προγραμμάτων άσκησης.</p>
+                        <div class="flex items-center space-x-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Flutter</span>
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">REST API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition group" data-category="ui">
+                    <div class="h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 relative">
+                        <img src="https://placehold.co/600x400/4338ca/ffffff?text=SaaS+Landing+Page" alt="SaaS Landing Page" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">UI/UX Design</span>
+                        <h3 class="text-xl font-bold">SaaS Landing Page Design</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Μοντέκνος σχεδιασμός ιστοσελίδας παρουσίασης λογισμικού cloud.</p>
+                        <div class="flex items-center space-x-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">Figma</span>
+                            <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-100 dark:bg-gray-700">UI Components</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Επικοινωνήστε μαζί μου</h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">Έχετε κάποια ερώτηση ή θέλετε να συνεργαστούμε; Στείλτε μου μήνυμα!</p>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 p-8 sm:p-12 shadow-sm">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2">Όνομα</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary-600 transition" placeholder="Το όνομά σας">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary-600 transition" placeholder="example@domain.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2">Μήνυμα</label>
+                        <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary-600 transition" placeholder="Γράψτε το μήνυμά σας εδώ..."></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-medium shadow-lg shadow-primary-600/30 transition">
+                            Αποστολή Μηνύματος
+                        </button>
+                    </div>
+                </form>
+                <!-- Notification Toast (replaces alert) -->
+                <div id="form-success" class="hidden mt-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-center font-medium">
+                    Το μήνυμά σας στάλθηκε με επιτυχία! Θα επικοινωνήσω μαζί σας σύντομα.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                &copy; 2026 Αλέξανδρος Παπαδόπουλος. Με επιφύλαξη παντός δικαιώματος.
+            </p>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 text-lg transition"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 text-lg transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 text-lg transition"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Dark / Light Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Check stored theme or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            htmlElement.classList.remove('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // Project Filtering
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category || (category === 'all' && btn.getAttribute('data-filter') === 'all')) {
+                    btn.className = "filter-btn px-5 py-2 rounded-xl text-sm font-medium bg-primary-600 text-white transition shadow-sm";
+                } else {
+                    btn.className = "filter-btn px-5 py-2 rounded-xl text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition";
+                }
+            });
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successBox = document.getElementById('form-success');
+            
+            // Reset form fields
+            form.reset();
+            
+            // Show success message without using alert()
+            successBox.classList.remove('hidden');
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
